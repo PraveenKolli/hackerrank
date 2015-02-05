@@ -30,7 +30,7 @@ public class SherlockAndArray {
      *            left sum for i-th element equals sum[i - 1]
      *            right sum for i-th element equals sum[n] - sum[i]
      *
-     * Complexity: O(T*N)
+     * Complexity: O(N)
      *
      * Memory: O(N)
      **/

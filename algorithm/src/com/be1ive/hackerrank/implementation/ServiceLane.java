@@ -48,8 +48,8 @@ public class ServiceLane {
      *            we can do it using pre build minimum segment tree on our array it has O(N) complexity, then
      *            just compute minimum it has O(N*log(N)) complexity
      *
-     * Complexity: O(N) + O(T*log(N))
-     *
+     * Complexity build: O(N)
+     * Complexity query: O(log(N))
      **/
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
