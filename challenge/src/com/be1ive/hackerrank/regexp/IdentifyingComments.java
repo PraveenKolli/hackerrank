@@ -1,11 +1,16 @@
 package com.be1ive.hackerrank.regexp;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * https://www.hackerrank.com/contests/regex-practice-1/challenges/ide-identifying-comments
+ *
+ * Problem Statement
  *
  * Jack wants to build an IDE on his own.
  * Help him build a feature which identifies the comments, in the source code of computer programs.
@@ -19,20 +24,25 @@ import java.util.regex.Pattern;
  */
 public class IdentifyingComments {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws Exception{
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter writer = new PrintWriter(System.out);
+
         Pattern pattern = Pattern.compile("((//.*?$)|(/\\*.*?\\*/))", Pattern.MULTILINE + Pattern.DOTALL);
         StringBuilder s = new StringBuilder();
-        while (sc.hasNextLine()) {
-            s.append(sc.nextLine()).append(System.lineSeparator());
+        String line;
+        while ((line = reader.readLine()) != null) {
+            s.append(line).append(System.lineSeparator());
         }
         Matcher matcher = pattern.matcher(s);
         while (matcher.find()) {
             //don't know how to delete leading spaces in multiline using aforementioned regexp
             String[] results = matcher.group().split(System.lineSeparator());
             for(String result : results) {
-                System.out.println(result.trim());
+                writer.println(result.trim());
             }
         }
+        writer.flush();
+        writer.close();
     }
 }
